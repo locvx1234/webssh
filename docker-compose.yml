@@ -1,6 +1,14 @@
 version: '3'
 services:
+  nginx: 
+    build: ./nginx
+    depends_on:
+      - web
+    ports:
+      - "443:443"
+      - "80:80"
   web:
     build: .
-    ports:
-    - "8888:8888"
+    expose:
+    - "8888"
+
